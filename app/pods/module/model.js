@@ -1,10 +1,15 @@
 import DS from 'ember-data';
- 
-var workspace_url_path = "/assets/workspace/"
+import Ember from 'ember';
+console.log("1");
+console.log(DS);
+console.log("2");
+var workspace_url_path = "/assets/workspace/";
 export default DS.Model.extend({
     path:	 DS.attr(),  // dir name relative to workspace_url_path
-    content: Ember.computed('path', function() {
+    contentfoo: Ember.computed('path', function() {
 		var h5pjson_fn = workspace_url_path + "/" + this.get('path') + "/content/content.json";
-		return $.getJSON(h5pjson_fn).responseJSON;
+		return Ember.$.getJSON(h5pjson_fn).responseJSON;
     })
 });
+
+console.log("3foo");
